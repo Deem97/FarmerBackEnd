@@ -1,7 +1,21 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
 const app = express()
 const PORT = 3000
+const {mongoUrl} = require('./keys')
+
+mongoose.connect(mongoUrl,{
+    useNewUrlParser:true
+})
+
+mongoose.connection.on('connected',()=>{
+    console.log("Connected to mongo")
+})
+
+mongoose.connection.on('error',(err)=>{
+    console.log("error",err)
+})
 
 app.use(bodyParser.json())
 
