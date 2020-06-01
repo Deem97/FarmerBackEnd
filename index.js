@@ -6,7 +6,9 @@ const PORT = 3000;
 const { mongoUrl } = require("./keys");
 
 require("./models/User");
+
 const authRoutes = require("./routes/authRoutes");
+
 
 mongoose.connect(mongoUrl, {
   useCreateIndex: true,
