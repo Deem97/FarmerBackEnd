@@ -10,7 +10,7 @@ router.post("/signup", async (req, res) => {
   try {
     const user = new User({ telephoneNumber, password });
     await user.save();
-    res.send("successfully added");
+    res.send("successfully added User");
   } catch (err) {
     res.status(422).send(err.message);
   }
