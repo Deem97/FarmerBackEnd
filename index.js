@@ -8,6 +8,7 @@ const { mongoUrl } = require("./keys");
 require("./models/User");
 
 const authRoutes = require("./routes/authRoutes");
+const stockRoutes = require("./routes/stockRoutes");
 
 
 mongoose.connect(mongoUrl, {
@@ -25,7 +26,7 @@ mongoose.connection.on("error", (err) => {
 });
 
 app.use(bodyParser.json());
-app.use(authRoutes);
+app.use(authRoutes,stockRoutes);
 
 app.post("/", (req, res) => {
   console.log(req.body);
